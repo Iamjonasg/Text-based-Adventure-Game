@@ -39,7 +39,7 @@ Scroll_text = "So you finally got here!\nI bet you've been looking for this trea
               "\nForget what I wrote about the treasure, alright?\nThere's no treasure here, only trees." \
               "\nAnd a goblin.\nOh, right, be careful about the goblin!\n"
 
-Goblin = Enemy("goblin", 18, 4, 7)
+Goblin = Enemy("goblin", 18, 4, 6)
 Scroll = Item("scroll", Scroll_text)
 has_sword = False
 has_scroll = False
@@ -145,15 +145,15 @@ while True:
     i += 1
     if 0 < player_health <= 8:
         print("Your wounds are severe... You should hurry up...\n")
-    elif player_health <= 0:
+    elif player_health <= 0 and enemy_count >= 1:
         print("You died.\n")
         break
     get_input()
     if is_out is True:
         print("And now, you got out of the forest!\nYour house is right here, you can finally go to bed"
-              "but, wait, it's 9AM...\nWell...\nTime to go to school!\n")
+              " but, wait, it's 9AM...\nWell...\nTime to go to school!\n")
         break
-    if i >= 3:
+    if i >= 4:
         rng = rand.randint(0, 2)
         try:
             Goblin
